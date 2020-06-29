@@ -1,0 +1,12 @@
+.menu{
+    background-color: aqua;
+    &--logo{
+        border-radius: 15px;
+    }
+    &--fuente{
+        font-family: 'Courier New', Courier, monospace;
+    }
+    &--redes{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+}
