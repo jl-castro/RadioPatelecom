@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EmbedVideo } from 'ngx-embed-video';
 
+import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 
 @NgModule({
@@ -28,6 +29,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
     StatusBar,
     SplashScreen,
     AndroidPermissions,
+    VideoPlayer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],

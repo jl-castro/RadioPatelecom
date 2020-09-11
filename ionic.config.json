@@ -1,8 +1,7 @@
 {
   "name": "RadioPatelecom",
   "integrations": {
-    "cordova": {},
-    "capacitor": {}
+    "cordova": {}
   },
   "type": "angular"
 }

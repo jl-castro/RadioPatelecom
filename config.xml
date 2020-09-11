@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="7" id="patelecomsrl.com.onlineradiopat" version="1.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Radio Patelecom</name>
+<widget android-versionCode="3" id="patelecomsrl.com.onlineradiocreativa" version="1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Radio Creativa</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />

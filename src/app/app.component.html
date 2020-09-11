@@ -1,48 +1,27 @@
 <ion-app>
-  <ion-split-pane >
+  <ion-split-pane>
     <ion-menu type="overlay" class="slide">
-
-      <ion-header >
+      <ion-header>
         <ion-toolbar>
           <!-- menu lateral imagen -->
           <ion-card class="welcome-card">
             <img src="/assets/logo.jpg" alt="" />
           </ion-card>
-
         </ion-toolbar>
       </ion-header>
 
       <ion-content>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" >
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
-                {{p.title}}
+                {{ p.title }}
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
       </ion-content>
-
-      <ion-content>
-        <ion-list-header>
-          <ion-label>Redes Sociales</ion-label>
-        </ion-list-header>
-        <ion-item href="https://mobile.twitter.com/RadioPatelecom?s=08">
-          <ion-icon slot="start" color="medium" name="logo-twitter"></ion-icon>
-          <ion-label>Twitter</ion-label>
-        </ion-item>
-        <ion-item href="https://www.facebook.com/RADIO-Patelecom-110977846933418/?modal=admin_todo_tour">
-          <ion-icon slot="start" color="medium" name="logo-facebook"></ion-icon>
-          <ion-label>Facebook</ion-label>
-        </ion-item>
-        <ion-item href="https://wa.me/59160614620">
-          <ion-icon slot="start" color="medium" name="logo-whatsapp"></ion-icon>
-          <ion-label>Whatsapp</ion-label>
-        </ion-item>
-      </ion-content>
-
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>

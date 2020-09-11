@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { environment } from '../../environments/environment';
+import {
+  StreamingMedia,
+  StreamingVideoOptions,
+} from '@ionic-native/streaming-media/ngx';
 
 @Component({
   selector: 'app-home',
@@ -6,11 +11,35 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  msbapTitle = 'Prueba puerto 8004';
+  msbapAudioUrl = environment.url;
+
+  msbapDisplayTitle = false;
+  msbapDisplayVolumeControls = true;
+
+  darkMode: boolean;
+  private streamingMedia: StreamingMedia;
+  public audio = 'http://192.99.17.12:6358';
   constructor() {}
 
-  msbapTitle = 'Prueba puerto 8008';
-  msbapAudioUrl = 'http://173.212.204.188:8008/stream';
+  cambio() {
+    this.darkMode = !this.darkMode;
+    document.body.classList.toggle('dark');
+  }
 
-  msbapDisplayTitle = true;
-  msbapDisplayVolumeControls = true;
+  play() {
+    this.streamingMedia = new StreamingMedia();
+    const options = {
+      initFullscreen: false, // true is default. iOS only.
+      keepAwake: true, // prevents device from sleeping. true is default. Android only.
+      controls: false,
+      successCallback() {
+        console.log('Player closed without error.');
+      },
+      errorCallback(errMsg) {
+        console.log('Error! ' + errMsg);
+      },
+    };
+    this.streamingMedia.playAudio(environment.url, options);
+  }
 }

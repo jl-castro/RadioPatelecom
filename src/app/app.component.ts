@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
-import { Platform } from '@ionic/angular';
+import { Platform, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -38,23 +38,45 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private androidPermissions: AndroidPermissions
+    private androidPermissions: AndroidPermissions,
+    public alertCtrl: AlertController
   ) {
     this.initializeApp();
-    this.androidPermissions
-      .checkPermission(this.androidPermissions.PERMISSION.INTERNET)
-      .then(
-        result => console.log('Has permission?', result.hasPermission),
-        err =>
-          this.androidPermissions.requestPermission(
-            this.androidPermissions.PERMISSION.INTERNET
-          )
-      );
+    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.INTERNET).then(
+      result => console.log('Has permission?', result.hasPermission),
+      err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.INTERNET)
+    );
   }
-  ngOnInit() {}
+
+  async presentAlertConfirm() {
+    const alert = await this.alertCtrl.create({
+      header: 'Salir',
+      message: '¿Esta Seguro que quiere salir?',
+      buttons: [
+        {
+          text: 'NO',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'SI',
+          handler: () => {
+              navigator['app'].exitApp();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+
+  ngOnInit() { }
   ngAfterViewInit() {
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-      navigator['app'].exitApp();
+      this.presentAlertConfirm();
     });
   }
   ngOnDestroy() {
@@ -67,4 +89,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
       this.splashScreen.hide();
     });
   }
+
+
 }

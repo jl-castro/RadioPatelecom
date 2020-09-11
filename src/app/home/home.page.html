@@ -3,34 +3,55 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Radio en Directo
-    </ion-title>
+    <ion-title> Radio en Directo </ion-title>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-  <ion-card >
-    <img class="altura" src="/assets/fondo.png" alt="" id="altura" />
-    <mat-basic-audio-player [audioUrl]="msbapAudioUrl" [title]="msbapTitle" [displayTitle]="msbapDisplayTitle"
-      [displayVolumeControls]="msbapDisplayVolumeControls"></mat-basic-audio-player>
+  <ion-list>
+    <ion-item>
+      <ion-icon slot="start" name="moon"></ion-icon>
+      <ion-label>Tema Oscuro</ion-label>
+      <ion-toggle
+        slot="end"
+        [ngModel]="darkMode"
+        (ionChange)="cambio()"
+        color="medium"
+      >
+      </ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <img class="altura" src="/assets/fondo2.jpg" alt="" id="altura" />
+    <mat-basic-audio-player
+      [audioUrl]="msbapAudioUrl"
+      [title]="msbapTitle"
+      [displayTitle]="msbapDisplayTitle"
+      [displayVolumeControls]="msbapDisplayVolumeControls"
+    >
+    </mat-basic-audio-player>
+    <!-- <ion-button (click)="play()">play</ion-button> -->
   </ion-card>
 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="medium">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
 
+    <ion-fab-list side="top">
+      <ion-fab-button
+        href="https://www.facebook.com/RADIO-Patelecom-110977846933418/?modal=admin_todo_tour"
+      >
+        <ion-icon name="logo-facebook" color="tertiary"> </ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-button href="https://mobile.twitter.com/RadioPatelecom?s=08"
+        ><ion-icon name="logo-twitter" color="primary"></ion-icon
+      ></ion-fab-button>
+      <ion-fab-button href="https://wa.me/59160614620"
+        ><ion-icon name="logo-whatsapp" color="success"></ion-icon
+      ></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar color="success">
-    <ion-title>Footer</ion-title>
-    <ion-buttons slot="secondary">
-    <ion-button>
-      <ion-icon slot="icon-only" name="contact"></ion-icon>
-    </ion-button>
-    <ion-button>
-      <ion-icon slot="icon-only" name="search"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-  </ion-toolbar>
-</ion-footer>
-
