@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://192.99.17.12:6358/;stream/1',
+  url: 'http://173.212.204.188:8008/stream?type=http&nocache=1',
 };
 /*
  * For easier debugging in development mode, you can import the following file
