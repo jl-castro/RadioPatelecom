@@ -42,7 +42,7 @@
     "cordova-plugin-video-player": "git+https://github.com/moust/cordova-plugin-videoplayer.git",
     "cordova-plugin-youtube-video-player": "^2.4.0",
     "core-js": "^2.6.11",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "ngx-audio-player": "^8.0.5",
     "ngx-embed-video": "1.0.4",
     "rxjs": "6.5.2",
